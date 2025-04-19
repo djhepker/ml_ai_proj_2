@@ -1,0 +1,26 @@
+name: 'Dependency review'
+
+on:
+  push:
+    branches: [ "**" ]   # ** means all branches
+  pull_request:
+    branches: [ "master" ]   # ** means all branches
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v4
+        with:
+          comment-summary-in-pr: always
+          # You may uncomment and customize further if you wish:
+          # fail-on-severity: moderate
+          # deny-licenses: GPL-1.0-or-later, LGPL-2.0-or-later
+          # retry-on-snapshot-warnings: true
