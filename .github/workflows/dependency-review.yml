@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [ "master" ]   # Only PRs targeting master
   push:
-    branches: [ "**" ]        # Any branch push
+    branches: [ "*" ]        # Any branch push
 
 permissions:
   contents: read
